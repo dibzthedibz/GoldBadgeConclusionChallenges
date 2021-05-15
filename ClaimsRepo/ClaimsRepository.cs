@@ -8,7 +8,6 @@ namespace ClaimsRepo
 {
     public class ClaimsRepository
     {
-        private readonly Queue<Claims> _Claims = new Queue<Claims>();
-
+       
     }
 }

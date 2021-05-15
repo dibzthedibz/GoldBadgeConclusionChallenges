@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Claims.cs" />
+    <Compile Include="Claims\Claims.cs" />
+    <Compile Include="Claims\IClaims.cs" />
     <Compile Include="ClaimsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
