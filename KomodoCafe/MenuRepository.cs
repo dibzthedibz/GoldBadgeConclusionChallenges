@@ -60,16 +60,18 @@ namespace CafeRepo
             }
             return false;
         }
-        public bool DeleteMenuItem(string itemToDelete)
+        public bool DeleteMenuItem(string oldItem)
         {
-            MenuItem objectToDelete = DisplayItemByName(itemToDelete);
-            if(objectToDelete != null)
+            
+            MenuItem itemToDelete = DisplayItemByName(oldItem);
+
+            if(itemToDelete == null)
             {
                 return false;
             }
             else
             {
-                _items.Remove(objectToDelete);
+                _items.Remove(itemToDelete);
                 return true;
             }
             

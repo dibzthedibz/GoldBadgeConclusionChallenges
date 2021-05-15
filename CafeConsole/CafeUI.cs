@@ -37,22 +37,18 @@ namespace CafeConsole
                     case "one":
                         ViewList();
                         break;
-                    //Create New Content
                     case "2":
                     case "two":
                         CreateItem();
                         break;
-                    //View All Content
                     case "3":
                     case "three":
-                        //UpdateItem();
+                        UpdateItem();
                         break;
-                    //View Content By Title
                     case "4":
                     case "four":
-                        //DeleteItem();
-                        break;
-                    //Update Existing Content
+                        DeleteItem();
+                        break;                    
                     case "5":
                     case "five"://Exit();
                         keeprunning = false;
@@ -62,8 +58,7 @@ namespace CafeConsole
                         Console.WriteLine("Please enter a valid number choice.");
                         break;
                 }
-                //Yeah i copypasted the switch case structure and the lines below. I don't care. Ive been at this for hours now,
-                //I have worked so many issues out EVEN THOUGH I'm referencing. I'm saving myself some typing if i can get away with it. :D
+                //Full disclosure, i copypasted the structure for the switchcase.  Everything else is 75-100% me, but im gonna save the typing when i can get away with it.
                 Console.WriteLine("Please Press Any Key To Continue");
                 Console.ReadKey();
                 Console.Clear();
@@ -75,7 +70,8 @@ namespace CafeConsole
             List<MenuItem> allItems = _repo.GetList();
             foreach (MenuItem item in allItems)
             {
-                Console.WriteLine($"Item Name: {item.MName}\n" +
+                //Try to list in order everything even after change. This is MVP.
+                Console.WriteLine($"{item.MNum}. {item.MName}\n" +
                     $"What it is: {item.MDesc}\n" +
                     $"Price: ${item.MPrice}\n");
                 
@@ -111,8 +107,58 @@ namespace CafeConsole
                 Console.WriteLine("Something Went Wrong! Try Again");
             }
         }
-        private void UpdateItem() { }
-        private void DeleteItem() { }
+        private void UpdateItem() 
+        {
+            Console.Clear();
+            ViewList();
+            Console.WriteLine("Please Enter the name of the item you would like to update: ");
+            string olddItem = Console.ReadLine();
+
+            MenuItem updatedItem = new MenuItem();
+
+            Console.WriteLine("Please enter new the name of the item to be added:");
+            updatedItem.MName = Console.ReadLine();
+
+            Console.WriteLine("What Menu Number Would you Like This Item to be?");
+            updatedItem.MNum = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Please Enter the New Description for the Item: ");
+            updatedItem.MDesc = Console.ReadLine();
+
+            Console.WriteLine("Please Enter the New Ingredient List for the Item: ");
+            updatedItem.IngList = Console.ReadLine();
+
+            Console.WriteLine("Please Enter the New Price of the Item: ");
+            updatedItem.MPrice = Convert.ToDecimal(Console.ReadLine());
+
+            bool ItemAdded = _repo.AddItemToMenu(updatedItem);
+            if (ItemAdded)
+            {
+                Console.WriteLine("Item Added Successfully");
+            }
+            else
+            {
+                Console.WriteLine("Something Went Wrong! Try Again");
+            }
+        }
+        private void DeleteItem() 
+          {
+            Console.Clear();
+            ViewList();
+
+            Console.WriteLine("Please Enter Name Of Item You Would Like to Delete: ");
+            bool deleted = _repo.DeleteMenuItem(Console.ReadLine());
+            if (deleted)
+            {
+                Console.WriteLine("You Deleted the Item Successfully!");
+            }
+            else
+            {
+                Console.WriteLine("Well, That Didnt Work...Try Again!");
+            }
+            
+
+        }
 
         private void SeedMenu()
         {

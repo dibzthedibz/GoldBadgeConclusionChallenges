@@ -12,14 +12,14 @@ namespace CafeTests
         private MenuItem _items;
         private MenuRepository _repo;
 
-       [TestInitialize]
-       public void Arrange()
+        [TestInitialize]
+        public void Arrange()
         {
             _repo = new MenuRepository();
             _items = new MenuItem(1, "BigMac", "Just A Big Mac", "Pickles, Lettuce, Cheese", 4.50f);
             _repo.AddItemToMenu(_items);
-            
-            
+
+
         }
 
         [TestMethod]
@@ -37,11 +37,9 @@ namespace CafeTests
 
         [TestMethod]
         public void UpdateExistingEntry()
-          
-        {
-            
 
-            _repo.UpdateExistingItem("BigMac", new MenuItem(2, "BiggerMac", "Bigger than the Mac", "Lettuce, Pickles, Tomatoes",5.50f));
+        {
+            _repo.UpdateExistingItem("BigMac", new MenuItem(2, "BiggerMac", "Bigger than the Mac", "Lettuce, Pickles, Tomatoes", 5.50f));
 
             Assert.AreEqual(_items.MName, "BiggerMac");
         }
@@ -59,13 +57,13 @@ namespace CafeTests
         public void GetFullList()
         {
 
-                       
+
             _repo.GetList();
 
 
         }
 
-      
+
 
     }
 }
