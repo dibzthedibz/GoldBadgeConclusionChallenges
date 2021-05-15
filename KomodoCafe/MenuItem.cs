@@ -13,16 +13,16 @@ namespace CafeRepo
         public string MName { get; set; }
         public string MDesc { get; set; }
         public string IngList { get; set; }
-        public float FPrice { get; set; }
+        public decimal MPrice { get; set; }
 
         public MenuItem() { }
-        public MenuItem(int mNum, string mName, string mDesc, string ingList, float fPrice)
+        public MenuItem(int mNum, string mName, string mDesc, string ingList, decimal mPrice)
         {
             MNum = mNum;
             MName = mName;
             MDesc = mDesc;
             IngList = ingList;
-            FPrice = fPrice;
+            MPrice = mPrice;
         }
 
     }

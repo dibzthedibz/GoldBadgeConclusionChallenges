@@ -4,3 +4,7 @@ S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionCh
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeConsole\obj\Debug\CafeConsole.csproj.CoreCompileInputs.cache
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeConsole\obj\Debug\CafeConsole.exe
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeConsole\obj\Debug\CafeConsole.pdb
+S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeConsole\obj\Debug\CafeConsole.csprojAssemblyReference.cache
+S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeConsole\bin\Debug\KomodoCafe.dll
+S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeConsole\bin\Debug\KomodoCafe.pdb
+S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeConsole\obj\Debug\CafeConsole.csproj.CopyComplete

@@ -24,18 +24,59 @@ namespace CafeRepo
         public bool AddItemToMenu(MenuItem newItem) 
         {           //  I mean, this is just too perfect. :D
             int startCount = _items.Count;
+            _items.Add(newItem);
                                     //If this condition is true, return true. Ternary expression.
             bool menuItemAdded = (_items.Count > startCount) ? true : false;
             return menuItemAdded;
         }
-        public void DisplayAllItemsByName() 
-        { 
-        
+        public List<MenuItem> GetList()
+        {
+            return _items;
         }
-        public void DeleteMenuItem() 
-        { 
-        
+        public MenuItem DisplayItemByName(string mName)
+        {
+            foreach (MenuItem item in _items)
+            {
+                if (item.MName.ToLower() == mName.ToLower())
+                {
+                    return item;
+                }
+                
+            }
+            return null;
         }
+            
+        public bool UpdateExistingItem(string oldName, MenuItem newItem)
+        {
+            MenuItem oldItem = DisplayItemByName(oldName);
+
+            if(oldItem != null)
+            {
+                oldItem.MNum = newItem.MNum;
+                oldItem.MName = newItem.MName;
+                oldItem.MDesc = newItem.MDesc;
+                oldItem.IngList = newItem.IngList;
+                oldItem.MPrice = newItem.MPrice;
+            }
+            return false;
+        }
+        public bool DeleteMenuItem(string itemToDelete)
+        {
+            MenuItem objectToDelete = DisplayItemByName(itemToDelete);
+            if(objectToDelete != null)
+            {
+                return false;
+            }
+            else
+            {
+                _items.Remove(objectToDelete);
+                return true;
+            }
+            
+        }
+
+
+
 
 
     }
