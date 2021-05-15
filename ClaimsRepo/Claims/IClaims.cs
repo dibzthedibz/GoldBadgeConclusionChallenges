@@ -8,11 +8,11 @@ namespace ClaimsRepo
 {
     interface IClaim
     {        
-        int ClaimID { get; set; }
-        string Description { get; set; }
-        int ClaimAmount { get; set; }
-        DateTime DateOfIncident { get; set; }
-        DateTime DateOfClaim { get; set; }
+        int ClaimID { get; }
+        string Description { get; }
+        int ClaimAmount { get;  }
+        DateTime DateOfIncident { get; }
+        DateTime DateOfClaim { get; }
         
     }
 }

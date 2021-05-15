@@ -18,5 +18,10 @@ namespace ClaimsTests
         //{
 
         //}
+        //[TestMethod]
+        //public void EnterNewClaim()
+        //{
+
+        //}
     }
 }
