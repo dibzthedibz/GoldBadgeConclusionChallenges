@@ -24,6 +24,7 @@ namespace CafeRepo
             IngList = ingList;
             MPrice = mPrice;
         }
+        
 
     }
 }

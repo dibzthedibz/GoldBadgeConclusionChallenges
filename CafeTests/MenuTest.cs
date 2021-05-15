@@ -7,7 +7,7 @@ namespace CafeTests
 {
     [TestClass]
     public class MenuTest
-    {       //these fields will allow me to call up new instances of my Repository class and my Item class.
+    {       
 
         private MenuItem _items;
         private MenuRepository _repo;
