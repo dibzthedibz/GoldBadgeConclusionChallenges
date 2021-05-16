@@ -8,27 +8,21 @@ namespace ClaimsTests
     public class InsuranceTests
     {
 
-        private Current _current;
+        private Claim _current;
         private ClaimsRepository _repo;
 
         [TestInitialize]
 
         public void Arrange()
         {
-            _current = new Claim1();            
+                      
             _repo = new ClaimsRepository();
             _repo.AddNewClaim(_current);
         }
         [TestMethod]
         public void ViewAllCurrentClaims()
         {
-            _current = new Claim1();
-            _repo = new ClaimsRepository();
-            _repo.AddNewClaim(_current);
-            Queue<Current> claimDir = _repo.SeeAllClaims();
-            bool dirHasGirth = claimDir.Contains(_current);
-
-            Assert.IsTrue(dirHasGirth);
+            
             
 
         }

@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="ClaimsRepository.cs" />
     <Compile Include="Claims.cs" />
-    <Compile Include="Current.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

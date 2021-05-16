@@ -9,11 +9,11 @@ namespace ClaimsRepo
 {
     public class ClaimsRepository
     {
-        private readonly Queue<Current> _currents = new Queue<Current>();
+        private readonly Queue<Claim> _currents = new Queue<Claim>();
 
-        public Queue<Current> SeeAllClaims()
+        public Queue<Claim> SeeAllClaims()
         {
-            IEnumerator<Current> enumerator = _currents.GetEnumerator();
+            IEnumerator<Claim> enumerator = _currents.GetEnumerator();
             while(enumerator.MoveNext())
             {
                 Console.WriteLine(enumerator.Current);
@@ -24,7 +24,7 @@ namespace ClaimsRepo
 
         }
 
-        public bool AddNewClaim(Current newClaim)
+        public bool AddNewClaim(Claim newClaim)
         {
             int startingCount = _currents.Count;
 

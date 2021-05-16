@@ -13,7 +13,7 @@ namespace ClaimsConsole
 {
     public class ClaimsUI
     {
-        Queue<Current> qCurrent = new Queue<Current>();
+        Queue<Claim> qCurrent = new Queue<Claim>();
 
         public void Run()
         {
@@ -27,7 +27,7 @@ namespace ClaimsConsole
             {
                 Console.WriteLine("Select One Of The Following:");
                 Console.WriteLine("                             ");
-                Console.WriteLine("\t1 -- See All Claims In Queue");
+                Console.WriteLine("\t1 -- See All Claim In Queue");
                 Console.WriteLine("\t2 -- Take Care of Next Claim");
                 Console.WriteLine("\t3 -- Enter New Claim");
                 Console.WriteLine("\t4 -- Exit Program");
@@ -71,9 +71,9 @@ namespace ClaimsConsole
         public void QEnqueue()
         {
            
-            Claim1 claim1 = new Claim1();
-            Claim2 claim2 = new Claim2();
-            Claim3 claim3 = new Claim3();
+            Claim claim1 = new Claim(2, "House Fire in Kitchen", 4000.00m, (2018, 4, 11), (2018, 4, 12));
+            Claim claim2 = new Claim();
+            Claim claim3 = new Claim();
 
             qCurrent.Enqueue(claim1);
             qCurrent.Enqueue(claim2);
