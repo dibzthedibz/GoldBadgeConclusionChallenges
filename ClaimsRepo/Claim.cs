@@ -23,15 +23,18 @@ namespace ClaimsRepo
         public DateTime DateOfIncident { get; set; }
         public DateTime DateOfClaim { get; set; }
         public ClaimType TypeOfClaim { get; set; }
-        bool IsValid()
+        public bool IsValid
         {
-            if (DateOfClaim.Month > (DateOfIncident.Month + 1))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
+            get
+                {
+                if (DateOfClaim.Month > (DateOfIncident.Month + 1))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
         }
         public Claim() { }
@@ -43,6 +46,6 @@ namespace ClaimsRepo
             DateOfIncident = dateOfIncident;
             DateOfClaim = dateOfClaim;
             TypeOfClaim = typeOfClaim;
-        }
+     }
     }
 }

@@ -11,16 +11,38 @@ namespace ClaimsRepo
     {
         private readonly Queue<Claim> _currents = new Queue<Claim>();
 
+
+
         public Queue<Claim> SeeAllClaims()
         {
-            IEnumerator<Claim> enumerator = _currents.GetEnumerator();
-            while(enumerator.MoveNext())
+            IEnumerator<Claim> c = _currents.GetEnumerator();
+
+            while(c.MoveNext())
             {
-                Console.WriteLine(enumerator.Current);
-                
-            };
+                Console.WriteLine(c.Current);
+            }
             return null;
-            
+
+        }
+        public Claim PeekNextClaim()
+        {
+            while (_currents.Count > 0)
+            {
+                Console.WriteLine(_currents.Peek());
+            }
+            return null;
+        }
+
+        public bool DequeueNextClaim()
+        {
+            int startCount = _currents.Count;
+
+            _currents.Dequeue();
+
+            bool deleted = (_currents.Count < startCount) ? true : false;
+
+            return deleted;
+
 
         }
 
@@ -35,8 +57,8 @@ namespace ClaimsRepo
 
 
         }
-       
-        
+
+
 
 
     }
