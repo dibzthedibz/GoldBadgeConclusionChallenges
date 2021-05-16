@@ -1,6 +1,5 @@
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\KomodoCafe\bin\Debug\KomodoCafe.dll
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\KomodoCafe\bin\Debug\KomodoCafe.pdb
-S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\KomodoCafe\obj\Debug\CafeRepo.csprojAssemblyReference.cache
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\KomodoCafe\obj\Debug\CafeRepo.csproj.CoreCompileInputs.cache
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\KomodoCafe\obj\Debug\KomodoCafe.dll
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\KomodoCafe\obj\Debug\KomodoCafe.pdb

@@ -10,6 +10,9 @@ namespace ClaimsConsole
     {
         static void Main(string[] args)
         {
+            ClaimsUI ui = new ClaimsUI();
+            ui.Run();
+           
         }
     }
 }
