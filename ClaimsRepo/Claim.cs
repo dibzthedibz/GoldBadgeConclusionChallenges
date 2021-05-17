@@ -39,7 +39,7 @@ namespace ClaimsRepo
                 }
             }
         }
-        //public Claim() { }
+        public Claim() { }
         public Claim(int claimID, string description, decimal claimAmount, DateTime dateOfIncident, DateTime dateOfClaim, ClaimType typeOfClaim)
         {
             ClaimID = claimID;

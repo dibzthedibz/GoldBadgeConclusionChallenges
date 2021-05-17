@@ -43,7 +43,7 @@ namespace ClaimsConsole
                         TakeCareOfNextClaim();
                         break;
                     case "3":
-                        //EnterNewClaim
+                        EnterNewClaim();
                         break;
                     case "4":
                         keepRunning = false;
@@ -55,7 +55,7 @@ namespace ClaimsConsole
         }
         private void SeeAllClaims()
         {
-            
+
             Console.Clear();
             _repo.SetWindowSize();
             _repo.BuildTable();
@@ -64,12 +64,12 @@ namespace ClaimsConsole
         private void TakeCareOfNextClaim()
         {
             Console.Clear();
-            
+
 
             bool keepItGoing = true;
             while (keepItGoing)
             {
-                
+
                 _repo.PeekNextClaim();
                 Console.WriteLine("Do you want to remove the next claim in cue and mark it completed?");
                 Console.WriteLine("     --------------------------------------------------------     ");
@@ -90,6 +90,30 @@ namespace ClaimsConsole
                 Console.Clear();
             }
         }
+        public void EnterNewClaim()
+        {
+            Console.Clear();
+            Claim claim = new Claim();
+
+            Console.Write("Enter New Claim ID: ");
+            claim.ClaimID = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("0 = Car, 1 = Home, 2 = Theft");
+            Console.WriteLine("                            ");
+            Console.Write("Enter New Claim Type:  ");
+            int typeAsInt = Convert.ToInt32(Console.ReadLine());
+            claim.TypeOfClaim = (ClaimType)typeAsInt;
+            Console.Write("Enter New Claim Description: ");
+            claim.Description = Console.ReadLine();
+            Console.Write("Enter New Claim Amount: ");
+            claim.ClaimAmount = Convert.ToDecimal(Console.ReadLine());
+            Console.Write("Enter New Date of Incident: ");
+            claim.DateOfIncident = Convert.ToDateTime(Console.ReadLine());
+            Console.Write("Enter New Date of Claim: ");
+            claim.DateOfClaim = Convert.ToDateTime(Console.ReadLine());
+            _repo.AddNewClaim(claim);
+            Console.Clear();
+        }
         public void QEnqueue()
         {
             Claim claim1 = new Claim(1, "Car accident on 465.", 400.00m, new DateTime(2018, 4, 25), new DateTime(2018, 4, 27), ClaimType.Car);
@@ -100,9 +124,5 @@ namespace ClaimsConsole
             _repo.AddNewClaim(claim3);
 
         }
-        
-
-
-
     }
 }
