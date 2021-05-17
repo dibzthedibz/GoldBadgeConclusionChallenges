@@ -48,17 +48,22 @@ namespace CafeRepo
             
         public bool UpdateExistingItem(string oldName, MenuItem newItem)
         {
-            MenuItem oldItem = DisplayItemByName(oldName);
+            MenuItem oldItem = DisplayItemByName(Convert.ToString(oldName));
 
-            if(oldItem != null)
+            if (oldItem != null)
             {
                 oldItem.MNum = newItem.MNum;
                 oldItem.MName = newItem.MName;
                 oldItem.MDesc = newItem.MDesc;
                 oldItem.IngList = newItem.IngList;
                 oldItem.MPrice = newItem.MPrice;
+
+                return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }
         }
         public bool DeleteMenuItem(string oldItem)
         {

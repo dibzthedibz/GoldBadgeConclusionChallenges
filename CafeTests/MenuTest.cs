@@ -7,14 +7,16 @@ namespace CafeTests
 {
     [TestClass]
     public class MenuTest
-    {       
+    {
 
         private MenuItem _items;
         private MenuRepository _repo;
+        private List<MenuItem> _menu;
 
         [TestInitialize]
         public void Arrange()
         {
+            _menu = new List<MenuItem>();
             _repo = new MenuRepository();
             _items = new MenuItem(1, "BigMac", "Just A Big Mac", "Pickles, Lettuce, Cheese", 4.50m);
             _repo.AddItemToMenu(_items);
@@ -39,15 +41,18 @@ namespace CafeTests
         public void UpdateExistingEntry()
 
         {
+            
+
             _repo.UpdateExistingItem("BigMac", new MenuItem(2, "BiggerMac", "Bigger than the Mac", "Lettuce, Pickles, Tomatoes", 5.50m));
 
+            
             Assert.AreEqual(_items.MName, "BiggerMac");
         }
 
         [TestMethod]
         public void DeleteThing()
-        {
-            bool wasDeleted = _repo.DeleteMenuItem("BiggerMac");
+        {           
+            bool wasDeleted = _repo.DeleteMenuItem("BigMac");
 
             Assert.IsTrue(wasDeleted);
 
@@ -56,11 +61,7 @@ namespace CafeTests
         [TestMethod]
         public void GetFullList()
         {
-
-
             _repo.GetList();
-
-
         }
 
 
