@@ -9,13 +9,12 @@ namespace ClaimsRepo
 {
     public class ClaimsRepository
     {
-        private readonly Queue<Claim> _currents = new Queue<Claim>();
-
-
+        
+        private Queue<Claim> _currents = new Queue<Claim>();
 
         public Queue<Claim> SeeAllClaims()
         {
-            IEnumerator<Claim> c = _currents.GetEnumerator();
+            Queue<Claim>.Enumerator c = _currents.GetEnumerator();
 
             while(c.MoveNext())
             {
@@ -26,10 +25,9 @@ namespace ClaimsRepo
         }
         public Claim PeekNextClaim()
         {
-            while (_currents.Count > 0)
-            {
+            
                 Console.WriteLine(_currents.Peek());
-            }
+            
             return null;
         }
 

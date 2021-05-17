@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace ClaimsRepo
 {
+
+
     public enum ClaimType
     {
 
@@ -26,7 +28,7 @@ namespace ClaimsRepo
         public bool IsValid
         {
             get
-                {
+            {
                 if (DateOfClaim.Month > (DateOfIncident.Month + 1))
                 {
                     return false;
@@ -38,7 +40,7 @@ namespace ClaimsRepo
             }
         }
         public Claim() { }
-        public Claim(int claimID, string description, decimal claimAmount, DateTime dateOfIncident, DateTime dateOfClaim, ClaimType typeOfClaim) 
+        public Claim(int claimID, string description, decimal claimAmount, DateTime dateOfIncident, DateTime dateOfClaim, ClaimType typeOfClaim)
         {
             ClaimID = claimID;
             Description = description;
@@ -46,6 +48,8 @@ namespace ClaimsRepo
             DateOfIncident = dateOfIncident;
             DateOfClaim = dateOfClaim;
             TypeOfClaim = typeOfClaim;
-     }
+        }
+        
+
     }
 }

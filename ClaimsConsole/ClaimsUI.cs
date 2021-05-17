@@ -14,8 +14,6 @@ namespace ClaimsConsole
     public class ClaimsUI
     {
         private ClaimsRepository _repo = new ClaimsRepository();
-        private Queue<Claim> qCurrent = new Queue<Claim>();
-        private Claim claim = new Claim();
         public void Run()
         {
             QEnqueue();
@@ -41,7 +39,7 @@ namespace ClaimsConsole
                         SeeAllClaims();
                         break;
                     case "2":
-                        //TakeCareOfNextClaim():
+                        TakeCareOfNextClaim();
                         break;
                     case "3":
                         //EnterNewClaim
@@ -52,29 +50,51 @@ namespace ClaimsConsole
                     default:
                         break;
                 }
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
                 Console.WriteLine("Please Press Any Key To Continue");
-                Console.ReadKey();
+
+                Console.ReadLine();
                 Console.Clear();
             }
         }
         private void SeeAllClaims()
         {
-            
             Console.Clear();
+            Queue<Claim> _currents = new Queue<Claim>();
             _repo.SeeAllClaims();
-            Console.Clear();
-            Console.WriteLine($"{claim.ClaimID}      {claim.Description}     {claim.ClaimAmount}     {claim.DateOfIncident}      {claim.DateOfClaim}       {claim.TypeOfClaim}       {claim.IsValid}");
-
         }
         private void TakeCareOfNextClaim()
         {
-            //peek and dequeue
             Console.Clear();
 
+            bool keepItGoing = true;
+            while (keepItGoing)
+            {
+                Console.Clear();
+                _repo.PeekNextClaim();
+                Console.WriteLine("Do you want to remove the next claim in cue and mark it completed?");
+                Console.WriteLine("     --------------------------------------------------------     ");
+                Console.Write("            Please Choose (y/n): ");
+                string input = (Console.ReadLine().ToLower());
+
+
+                switch (input)
+                {
+                    case "y":
+                        _repo.DequeueNextClaim();
+                        Console.WriteLine("Claim Successfully Taken Care Of");
+                        break;
+                    case "n":
+                        keepItGoing = false;
+                        break;
+                }
+            }
         }
-
-
-
+        public void AddClaimToQueue()
+        {
+            Console.Clear();
+            
+        }
         public void QEnqueue()
         {
 
@@ -82,9 +102,9 @@ namespace ClaimsConsole
             Claim claim2 = new Claim(2, "House Fire in Kitchen", 4000.00m, new DateTime(2018, 4, 11), new DateTime(2018, 4, 12), ClaimType.Home);
             Claim claim3 = new Claim(3, "Stolen pancakes.", 4.00m, new DateTime(2018, 4, 27), new DateTime(2018, 6, 01), ClaimType.Theft);
 
-            qCurrent.Enqueue(claim1);
-            qCurrent.Enqueue(claim2);
-            qCurrent.Enqueue(claim3);
+            _repo.AddNewClaim(claim1);
+            _repo.AddNewClaim(claim2);
+            _repo.AddNewClaim(claim3);
         }
     }
 }

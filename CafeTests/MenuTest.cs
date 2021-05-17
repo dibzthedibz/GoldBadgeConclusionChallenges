@@ -16,7 +16,7 @@ namespace CafeTests
         public void Arrange()
         {
             _repo = new MenuRepository();
-            _items = new MenuItem(1, "BigMac", "Just A Big Mac", "Pickles, Lettuce, Cheese", 4.50f);
+            _items = new MenuItem(1, "BigMac", "Just A Big Mac", "Pickles, Lettuce, Cheese", 4.50m);
             _repo.AddItemToMenu(_items);
 
 
@@ -27,7 +27,7 @@ namespace CafeTests
         {
 
 
-            MenuItem _items = new MenuItem(1, "BigMac", "Just A Big Mac", "Pickles, Lettuce, Cheese", 4.50f);
+            MenuItem _items = new MenuItem(1, "BigMac", "Just A Big Mac", "Pickles, Lettuce, Cheese", 4.50m);
 
             bool addItem = _repo.AddItemToMenu(_items);
 
@@ -39,7 +39,7 @@ namespace CafeTests
         public void UpdateExistingEntry()
 
         {
-            _repo.UpdateExistingItem("BigMac", new MenuItem(2, "BiggerMac", "Bigger than the Mac", "Lettuce, Pickles, Tomatoes", 5.50f));
+            _repo.UpdateExistingItem("BigMac", new MenuItem(2, "BiggerMac", "Bigger than the Mac", "Lettuce, Pickles, Tomatoes", 5.50m));
 
             Assert.AreEqual(_items.MName, "BiggerMac");
         }
