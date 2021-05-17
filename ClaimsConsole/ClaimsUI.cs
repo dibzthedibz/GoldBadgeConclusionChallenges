@@ -13,7 +13,7 @@ namespace ClaimsConsole
 {
     public class ClaimsUI
     {
-        private ClaimsRepository _repo = new ClaimsRepository();
+        private readonly ClaimsRepository _repo = new ClaimsRepository();
         public void Run()
         {
             QEnqueue();
@@ -21,6 +21,7 @@ namespace ClaimsConsole
         }
         private void Menu()
         {
+            Console.Clear();
             bool keepRunning = true;
             while (keepRunning)
             {
@@ -50,27 +51,25 @@ namespace ClaimsConsole
                     default:
                         break;
                 }
-                Console.WriteLine("------------------------------------------------------------------------------------------------");
-                Console.WriteLine("Please Press Any Key To Continue");
-
-                Console.ReadLine();
-                Console.Clear();
             }
         }
         private void SeeAllClaims()
         {
+            
             Console.Clear();
-            Queue<Claim> _currents = new Queue<Claim>();
-            _repo.SeeAllClaims();
+            _repo.SetWindowSize();
+            _repo.BuildTable();
+
         }
         private void TakeCareOfNextClaim()
         {
             Console.Clear();
+            
 
             bool keepItGoing = true;
             while (keepItGoing)
             {
-                Console.Clear();
+                
                 _repo.PeekNextClaim();
                 Console.WriteLine("Do you want to remove the next claim in cue and mark it completed?");
                 Console.WriteLine("     --------------------------------------------------------     ");
@@ -88,23 +87,22 @@ namespace ClaimsConsole
                         keepItGoing = false;
                         break;
                 }
+                Console.Clear();
             }
-        }
-        public void AddClaimToQueue()
-        {
-            Console.Clear();
-            
         }
         public void QEnqueue()
         {
-
             Claim claim1 = new Claim(1, "Car accident on 465.", 400.00m, new DateTime(2018, 4, 25), new DateTime(2018, 4, 27), ClaimType.Car);
-            Claim claim2 = new Claim(2, "House Fire in Kitchen", 4000.00m, new DateTime(2018, 4, 11), new DateTime(2018, 4, 12), ClaimType.Home);
-            Claim claim3 = new Claim(3, "Stolen pancakes.", 4.00m, new DateTime(2018, 4, 27), new DateTime(2018, 6, 01), ClaimType.Theft);
-
             _repo.AddNewClaim(claim1);
+            Claim claim2 = new Claim(2, "House Fire in Kitchen", 4000.00m, new DateTime(2018, 4, 11), new DateTime(2018, 4, 12), ClaimType.Home);
             _repo.AddNewClaim(claim2);
+            Claim claim3 = new Claim(3, "Stolen pancakes.", 4.00m, new DateTime(2018, 4, 27), new DateTime(2018, 6, 01), ClaimType.Theft);
             _repo.AddNewClaim(claim3);
+
         }
+        
+
+
+
     }
 }
