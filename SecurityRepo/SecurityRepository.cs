@@ -8,27 +8,30 @@ namespace SecurityRepo
 {
     public class SecurityRepository
     {
-        private Dictionary<int, string> _idDict = new Dictionary<int, string>();
+        private Dictionary<int, SecurityID> _idDict = new Dictionary<int, SecurityID>();
 
 
 
-        public Dictionary<int, string> ViewAllEntries()
+        public Dictionary<int, SecurityID> ViewAllEntries()
         {
             return _idDict;
         }
-        public bool AddKeyToCollection(int key, string value)
+
+        public bool AddKeyToCollection(SecurityID newID)
         {
             int startCount = _idDict.Count();
-            _idDict.Add(key, value);
 
-            bool wasAdded = (_idDict.Count > startCount) ? true : false;
-            if (wasAdded)
-            {
-                return wasAdded;
-            }
-            return false;
+            _idDict.Add(newID.BadgeID, newID);
+
+            bool wasAdded = _idDict.Count > startCount;
+            return wasAdded;
         }
-       
+
+        public Dictionary<int, SecurityID> ShowFullList()
+        {
+            return _idDict;
+        }
+
 
     }
 }

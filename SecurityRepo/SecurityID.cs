@@ -17,6 +17,7 @@ namespace SecurityRepo
             BadgeID = badgeID;
             DoorAccess = doorAccess;
         }
+        public KeyValuePair<int, string> dictPair = new KeyValuePair<int, string>();
     }
 
 }

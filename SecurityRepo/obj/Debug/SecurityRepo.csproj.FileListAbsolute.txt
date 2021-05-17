@@ -1,5 +1,5 @@
+S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\SecurityRepo\obj\Debug\SecurityRepo.csproj.CoreCompileInputs.cache
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\SecurityRepo\bin\Debug\SecurityRepo.dll
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\SecurityRepo\bin\Debug\SecurityRepo.pdb
-S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\SecurityRepo\obj\Debug\SecurityRepo.csproj.CoreCompileInputs.cache
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\SecurityRepo\obj\Debug\SecurityRepo.dll
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\SecurityRepo\obj\Debug\SecurityRepo.pdb

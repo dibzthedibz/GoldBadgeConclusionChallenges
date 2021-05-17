@@ -8,25 +8,61 @@ namespace SecurityTests
     [TestClass]
     public class SecurityTests
     {
-        private Dictionary<int, string> _dict;
+        private Dictionary<int, SecurityID> _dict;
         private SecurityRepository _repo;
         private SecurityID _id;
+
+
+
         [TestInitialize]
         public void Arrange()
         {
-            _id = new SecurityID(69, "A4");
+            _dict = new Dictionary<int, SecurityID>();
             _repo = new SecurityRepository();
-            _dict = new Dictionary<int, string>();
-            
-
-           
+            _id = new SecurityID()
+            {
+                BadgeID = 69,
+                DoorAccess = "A5"
+            };
         }
+
+
+
         [TestMethod]
         public void CreateNew()
         {
-            bool addInput = _repo.AddKeyToCollection(69, "A4");
-            Assert.IsTrue(addInput);
+            bool wasAdded = _repo.AddKeyToCollection(_id);
+
+            Assert.IsTrue(wasAdded);
         }
+
+        [TestMethod]
+        public void UpdateDoorAccessByBadge()
+        {
+
+        }
+        
+        
+        
+        
+        
+        [TestMethod]
+        public void ShowListOfAllKeyValuePairs()
+        {
+            _repo.AddKeyToCollection(_id);
+            bool dictHasGirth = _dict.ContainsKey(_id.BadgeID);
+
+            Assert.IsTrue(dictHasGirth);
+        }
+
+
+
+
+
+
+
+
+
         //[TestMethod]
         //public void UpdateDoorAccessPerID()
         //{
@@ -37,14 +73,6 @@ namespace SecurityTests
         //{
 
         //}
-        [TestMethod]
-        public void ShowListOfAllKeyValuePairs()
-        {   
-            _repo.ViewAllEntries();
-            bool dictHasGirth = _dict.ContainsKey(69);
-            
 
-            
-        }
     }
 }

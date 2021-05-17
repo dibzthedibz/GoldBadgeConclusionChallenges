@@ -9,7 +9,8 @@ namespace SecurityConsole
 {
     class SecurityUI
     {
-        private Dictionary<int, string> _idDict;
+        
+        private SecurityRepository _repo = new SecurityRepository();
         public void Run()
         {
             StockUpDict();
@@ -17,15 +18,50 @@ namespace SecurityConsole
         }
         public void Menu()
         {
-
+            //string selection = Console.ReadLine();
+            //switch (selection)
+            //{
+            //    case "1":
+            //        SeeAllClaims();
+            //        break;
+            //    case "2":
+            //        TakeCareOfNextClaim();
+            //        break;
+            //    case "3":
+            //        EnterNewClaim();
+            //        break;
+            //    case "4":
+            //        keepRunning = false;
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
+
+
+
         public void StockUpDict()
         {
-            SecurityID id1 = new SecurityID(69, "A7");
-            SecurityID id2 = new SecurityID(70, "A1, A4, B1, B2");
-            SecurityID id3 = new SecurityID(80, "A4, A5");
+            SecurityID id1 = new SecurityID()
+            {
+                BadgeID = 69,
+                DoorAccess = "A4"
+            };
+            SecurityID id2 = new SecurityID()
+            {
+                BadgeID = 69,
+                DoorAccess = "A4"
+            };
+            SecurityID id3 = new SecurityID()
+            {
+                BadgeID = 69,
+                DoorAccess = "A4"
+            };
 
-            
+            _repo.AddKeyToCollection(id1);
+            _repo.AddKeyToCollection(id2);
+            _repo.AddKeyToCollection(id3);
+
         }
     }
 }

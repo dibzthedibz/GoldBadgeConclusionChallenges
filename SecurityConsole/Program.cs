@@ -10,6 +10,8 @@ namespace SecurityConsole
     {
         static void Main(string[] args)
         {
+            SecurityUI ui = new SecurityUI();
+            ui.Run();
         }
     }
 }
