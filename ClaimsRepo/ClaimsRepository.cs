@@ -74,7 +74,7 @@ namespace ClaimsRepo
                "Claim ID",
                "Claim Type",
                "Description",
-               "Amount",
+               "          Amount",
                "Date of Accident",
                "Date of Claim",
                "Valid Claim"
@@ -184,6 +184,8 @@ namespace ClaimsRepo
 
         public bool AddNewClaim(Claim newClaim)
         {
+;
+            
             int startingCount = _currents.Count;
 
             _currents.Enqueue(newClaim);

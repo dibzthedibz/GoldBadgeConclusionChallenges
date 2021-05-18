@@ -13,6 +13,7 @@ namespace ClaimsConsole
 {
     public class ClaimsUI
     {
+        
         private readonly ClaimsRepository _repo = new ClaimsRepository();
         public void Run()
         {
