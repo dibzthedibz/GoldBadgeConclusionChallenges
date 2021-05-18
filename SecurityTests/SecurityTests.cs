@@ -31,7 +31,7 @@ namespace SecurityTests
         [TestMethod]
         public void CreateNew()
         {
-            bool wasAdded = _repo.AddKeyToCollection(_id);
+            bool wasAdded = _repo.AddItemToCollection(_id);
 
             Assert.IsTrue(wasAdded);
         }
@@ -39,7 +39,9 @@ namespace SecurityTests
         [TestMethod]
         public void UpdateDoorAccessByBadge()
         {
+            _repo.UpdateExistingDoorAccessByBadgeId(69, "A4");
 
+            Assert.AreEqual(_id.DoorAccess, );
         }
         
         
@@ -49,9 +51,10 @@ namespace SecurityTests
         [TestMethod]
         public void ShowListOfAllKeyValuePairs()
         {
-            _repo.AddKeyToCollection(_id);
+            _repo.AddItemToCollection(_id);
+            _repo.ViewAllEntries();
             bool dictHasGirth = _dict.ContainsKey(_id.BadgeID);
-
+            
             Assert.IsTrue(dictHasGirth);
         }
 

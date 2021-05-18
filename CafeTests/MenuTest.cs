@@ -41,17 +41,17 @@ namespace CafeTests
         public void UpdateExistingEntry()
 
         {
-            
+
 
             _repo.UpdateExistingItem("BigMac", new MenuItem(2, "BiggerMac", "Bigger than the Mac", "Lettuce, Pickles, Tomatoes", 5.50m));
 
-            
+
             Assert.AreEqual(_items.MName, "BiggerMac");
         }
 
         [TestMethod]
         public void DeleteThing()
-        {           
+        {
             bool wasDeleted = _repo.DeleteMenuItem("BigMac");
 
             Assert.IsTrue(wasDeleted);

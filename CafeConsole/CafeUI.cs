@@ -10,7 +10,7 @@ namespace CafeConsole
     public class CafeUI
     {
         private MenuRepository _repo = new MenuRepository();
-        
+
 
         public void Run()
         {
@@ -48,7 +48,7 @@ namespace CafeConsole
                     case "4":
                     case "four":
                         DeleteItem();
-                        break;                    
+                        break;
                     case "5":
                     case "five"://Exit();
                         keeprunning = false;
@@ -58,13 +58,12 @@ namespace CafeConsole
                         Console.WriteLine("Please enter a valid number choice.");
                         break;
                 }
-                //Full disclosure, i copypasted the structure for the switchcase.  Everything else is 75-100% me, but im gonna save the typing when i can get away with it.
                 Console.WriteLine("Please Press Any Key To Continue");
                 Console.ReadKey();
                 Console.Clear();
             }
         }
-        private void ViewList() 
+        private void ViewList()
         {
             Console.Clear();
             List<MenuItem> allItems = _repo.GetList();
@@ -74,10 +73,10 @@ namespace CafeConsole
                 Console.WriteLine($"{item.MNum}. {item.MName}\n" +
                     $"What it is: {item.MDesc}\n" +
                     $"Price: ${item.MPrice}\n");
-                
+
             }
         }
-        private void CreateItem() 
+        private void CreateItem()
         {
             Console.Clear();
             MenuItem newItem = new MenuItem();
@@ -107,12 +106,12 @@ namespace CafeConsole
                 Console.WriteLine("Something Went Wrong! Try Again");
             }
         }
-        private void UpdateItem() 
+        private void UpdateItem()
         {
             Console.Clear();
             ViewList();
             Console.WriteLine("Please Enter the name of the item you would like to update: ");
-            string olddItem = Console.ReadLine();
+            string oldItem = Console.ReadLine();
 
             MenuItem updatedItem = new MenuItem();
 
@@ -131,7 +130,9 @@ namespace CafeConsole
             Console.WriteLine("Please Enter the New Price of the Item: ");
             updatedItem.MPrice = Convert.ToDecimal(Console.ReadLine());
 
-            bool ItemAdded = _repo.AddItemToMenu(updatedItem);
+
+
+            bool ItemAdded = _repo.UpdateExistingItem(oldItem, updatedItem);
             if (ItemAdded)
             {
                 Console.WriteLine("Item Added Successfully");
@@ -141,8 +142,8 @@ namespace CafeConsole
                 Console.WriteLine("Something Went Wrong! Try Again");
             }
         }
-        private void DeleteItem() 
-          {
+        private void DeleteItem()
+        {
             Console.Clear();
             ViewList();
 
@@ -156,7 +157,7 @@ namespace CafeConsole
             {
                 Console.WriteLine("Well, That Didnt Work...Try Again!");
             }
-            
+
 
         }
 
