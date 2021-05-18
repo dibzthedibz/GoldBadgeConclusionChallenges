@@ -36,7 +36,7 @@ namespace ClaimsTests
             Assert.IsTrue(addClaim);
         }
 
-        [TestMethod]
+        [TestMethod]//This is not right.  SeeAllClaims method is useless
         public void ViewAllCurrentClaims_ReturnCorrectCollection()
         {
             _repo.SeeAllClaims();
@@ -48,6 +48,7 @@ namespace ClaimsTests
         public void SeeNextClaimInQueue_ShouldReturnAreEqual()  //debug stuck here
         {
             Claim peeker = _repo.PeekNextClaim();
+
             Assert.AreEqual(peeker, _claim1);
         }
         [TestMethod]

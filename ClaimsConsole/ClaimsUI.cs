@@ -64,31 +64,9 @@ namespace ClaimsConsole
         private void TakeCareOfNextClaim()
         {
             Console.Clear();
+            _repo.PeekNextClaim();
 
 
-            bool keepItGoing = true;
-            while (keepItGoing)
-            {
-
-                _repo.PeekNextClaim();
-                Console.WriteLine("Do you want to remove the next claim in cue and mark it completed?");
-                Console.WriteLine("     --------------------------------------------------------     ");
-                Console.Write("            Please Choose (y/n): ");
-                string input = (Console.ReadLine().ToLower());
-
-
-                switch (input)
-                {
-                    case "y":
-                        _repo.DequeueNextClaim();
-                        Console.WriteLine("Claim Successfully Taken Care Of");
-                        break;
-                    case "n":
-                        keepItGoing = false;
-                        break;
-                }
-                Console.Clear();
-            }
         }
         public void EnterNewClaim()
         {
@@ -97,18 +75,27 @@ namespace ClaimsConsole
 
             Console.Write("Enter New Claim ID: ");
             claim.ClaimID = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
             Console.WriteLine("----------------------------");
             Console.WriteLine("0 = Car, 1 = Home, 2 = Theft");
             Console.WriteLine("                            ");
             Console.Write("Enter New Claim Type:  ");
             int typeAsInt = Convert.ToInt32(Console.ReadLine());
             claim.TypeOfClaim = (ClaimType)typeAsInt;
+            Console.Clear();
+
             Console.Write("Enter New Claim Description: ");
             claim.Description = Console.ReadLine();
+            Console.Clear();
+
             Console.Write("Enter New Claim Amount: ");
             claim.ClaimAmount = Convert.ToDecimal(Console.ReadLine());
+            Console.Clear();
+
             Console.Write("Enter New Date of Incident: ");
             claim.DateOfIncident = Convert.ToDateTime(Console.ReadLine());
+            Console.Clear();
+
             Console.Write("Enter New Date of Claim: ");
             claim.DateOfClaim = Convert.ToDateTime(Console.ReadLine());
             _repo.AddNewClaim(claim);
@@ -122,6 +109,7 @@ namespace ClaimsConsole
             _repo.AddNewClaim(claim2);
             Claim claim3 = new Claim(3, "Stolen pancakes.", 4.00m, new DateTime(2018, 4, 27), new DateTime(2018, 6, 01), ClaimType.Theft);
             _repo.AddNewClaim(claim3);
+            
 
         }
     }

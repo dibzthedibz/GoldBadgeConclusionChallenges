@@ -61,16 +61,20 @@ namespace ClaimsRepo
                 topRow["Claim Valid"] = claim.IsValid;
                 claimTable.Rows.Add(topRow);
             }
+
             PrintDataTable(claimTable);
             Console.WriteLine();
         }
+
+
+
         private static void PrintDataTable(DataTable table)
         {
             Console.WriteLine("{0,10}\t{1,10}\t{2,10}\t{3,10}\t{4,25}\t{5,25}\t{6,10}",
                "Claim ID",
                "Claim Type",
                "Description",
-               "          Amount",
+               "Amount",
                "Date of Accident",
                "Date of Claim",
                "Valid Claim"
@@ -95,26 +99,77 @@ namespace ClaimsRepo
             Console.ReadLine();
             Console.Clear();
         }
+
         public Queue<Claim> SeeAllClaims()
         {
 
             foreach (Claim claim in _currents)
             {
-                Console.WriteLine(" " + claim.ClaimID + "        " + claim.TypeOfClaim + "      " + claim.Description + "     " + claim.ClaimAmount + "     " + claim.DateOfIncident + "     " + claim.DateOfClaim + "     " + claim.IsValid);
+                Console.WriteLine(" " + claim.ClaimID + "   " + claim.TypeOfClaim + "      " + claim.Description + "     " + claim.ClaimAmount + "     " + claim.DateOfIncident + "     " + claim.DateOfClaim + "     " + claim.IsValid);
             }
             return null;
 
         }
         public Claim PeekNextClaim()
         {
-            Claim peeker = _currents.Peek();
-            Claim first = _currents.First();
-            if (first == peeker)
+            Console.Clear();
+            Console.WindowWidth = 205;
+
+
+            if (_currents.Count == 0)
             {
-                return peeker;
+                Console.WriteLine("Press any Key to Continue...");
+            }
+
+
+            else if (_currents.Count >= 1)
+            {
+                bool keepItGoing = true;
+
+                while (keepItGoing)
+                {
+                    if (_currents.Count == 0)
+                    {
+                        keepItGoing = false;
+                    }
+                    else
+                    {
+                        Claim claim = _currents.Peek();
+                        Console.WriteLine("Claim ID       Type     Description              Amount     Date of Accident           Date of Claim             Claim is Valid       ");
+                        Console.WriteLine("---------      -----    ------------             -------    -----------------          --------------            ---------------");
+                        Console.WriteLine(claim.ClaimID + "              " + claim.TypeOfClaim + "      " + claim.Description + "     " + claim.ClaimAmount + "     " + claim.DateOfIncident + "      " + claim.DateOfClaim + "     " + claim.IsValid);
+
+                        Console.WriteLine("                                                   ");
+                        Console.WriteLine("     Do you want to remove the next claim in queue and mark it complete?");
+                        Console.WriteLine("     --------------------------------------------------------     ");
+                        Console.Write("            Please Choose (y/n): ");
+                        string input = (Console.ReadLine().ToLower());
+
+
+                        switch (input)
+                        {
+                            case "y":
+
+
+                                Console.WriteLine("Claim Successfully Taken Care Of");
+                                DequeueNextClaim();
+
+                                break;
+                            case "n":
+                                keepItGoing = false;
+                                break;
+                        }
+                        Console.Clear();
+                    }
+                }
             }
             return null;
         }
+
+
+
+
+
 
         public bool DequeueNextClaim()
         {
@@ -122,7 +177,7 @@ namespace ClaimsRepo
 
             _currents.Dequeue();
 
-            bool deleted = (_currents.Count < startCount) ? true : false;
+            bool deleted = (_currents.Count < startCount);
 
             return deleted;
         }
@@ -145,3 +200,4 @@ namespace ClaimsRepo
 
     }
 }
+
