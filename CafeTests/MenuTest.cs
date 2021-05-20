@@ -27,14 +27,11 @@ namespace CafeTests
         [TestMethod]
         public void AddItemToMenu_ShouldReturnIsTrue()
         {
-
-
             MenuItem _items = new MenuItem(1, "BigMac", "Just A Big Mac", "Pickles, Lettuce, Cheese", 4.50m);
 
             bool addItem = _repo.AddItemToMenu(_items);
 
             Assert.IsTrue(addItem);
-
         }
 
         [TestMethod]

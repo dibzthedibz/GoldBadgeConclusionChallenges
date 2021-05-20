@@ -12,27 +12,27 @@ namespace SecurityRepo
 
 
 
-        private Dictionary<int, List<string>> _idDict = new Dictionary<int, List<string>>();
+        private Dictionary<int, List<string>> IdDict = new Dictionary<int, List<string>>();
 
 
 
 
         public Dictionary<int, List<string>> ViewAllEntries()
         {
-            return _idDict;
+            return IdDict;
         }
 
 
         public bool DoesKeyExist(int key)
         {
 
-            bool doesExist = _idDict.ContainsKey(key);
+            bool doesExist = IdDict.ContainsKey(key);
 
             return doesExist;
         }
         public string ValuesByKey(int key)
         {
-            foreach (KeyValuePair<int, List<string>> door in _idDict)
+            foreach (KeyValuePair<int, List<string>> door in IdDict)
             {
                 if (door.Key == key)
                 {
@@ -44,7 +44,7 @@ namespace SecurityRepo
         }
         public bool GetIDByKey(int key)
         {
-            foreach (KeyValuePair<int, List<string>> door in _idDict)
+            foreach (KeyValuePair<int, List<string>> door in IdDict)
             {
                 if (door.Key == key)
                 {
@@ -55,10 +55,10 @@ namespace SecurityRepo
         }
         public bool CreateNewBadge(SecurityID newOne)
         {
-            int startCount = _idDict.Count();
-            _idDict.Add(newOne.BadgeID, newOne.Doors);
+            int startCount = IdDict.Count();
+            IdDict.Add(newOne.BadgeID, newOne.Doors);
 
-            bool wasAdded = (_idDict.Count > startCount);
+            bool wasAdded = (IdDict.Count > startCount);
             return wasAdded;
 
         }
@@ -67,11 +67,11 @@ namespace SecurityRepo
         public bool AddDoorToExistingBadge(SecurityID newDoors)
         {
 
-            if (_idDict.ContainsKey(newDoors.BadgeID))
+            if (IdDict.ContainsKey(newDoors.BadgeID))
             {
                 foreach (string s in newDoors.Doors)
                 {
-                    _idDict[newDoors.BadgeID].Add(s);
+                    IdDict[newDoors.BadgeID].Add(s);
                 }
                 return true;
             }
@@ -80,11 +80,11 @@ namespace SecurityRepo
 
         public bool RemoveDoorFromExistingBadge(SecurityID oldDoors)
         {
-            if (_idDict.ContainsKey(oldDoors.BadgeID))
+            if (IdDict.ContainsKey(oldDoors.BadgeID))
             {
                 foreach (string s in oldDoors.Doors)
                 {
-                    _idDict[oldDoors.BadgeID].Remove(s);
+                    IdDict[oldDoors.BadgeID].Remove(s);
                 }
                 return true;
             }
