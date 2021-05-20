@@ -36,12 +36,8 @@ namespace CafeTests
 
         [TestMethod]
         public void UpdateExistingEntry()
-
         {
-
-
             _repo.UpdateExistingItem("BigMac", new MenuItem(2, "BiggerMac", "Bigger than the Mac", "Lettuce, Pickles, Tomatoes", 5.50m));
-
 
             Assert.AreEqual(_items.MName, "BiggerMac");
         }
@@ -58,7 +54,14 @@ namespace CafeTests
         [TestMethod]
         public void GetFullList()
         {
-            _repo.GetList();
+            MenuItem Garth = new MenuItem();
+            List<MenuItem> Girth = _repo.GetList();
+            _repo.AddItemToMenu(Garth);
+            bool hasGarth = Girth.Contains(Garth);
+
+            Assert.IsTrue(hasGarth);
+            
+           
         }
 
 
