@@ -1,0 +1,2 @@
+S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\GreetingConsole\obj\Debug\T_GreetingConsole.csprojAssemblyReference.cache
+S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\GreetingConsole\obj\Debug\T_GreetingConsole.csproj.CoreCompileInputs.cache

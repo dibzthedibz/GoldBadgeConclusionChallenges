@@ -10,24 +10,18 @@ namespace SecurityTests
     {
         private SecurityRepository _repo;
         SecurityID _dude;
-       
+        
 
         [TestMethod]
         public void CreateNewBadgeID()
         {
+            List<string> stuff = new List<string>();
 
-
-            SecurityID lebowski = new SecurityID();
-            SecurityRepository repository = new SecurityRepository();
-            lebowski.BadgeID = 24;
-            lebowski.Doors.Add("A7");
-            bool wasAdded = repository.CreateNewBadge(lebowski);
-
+            SecurityID dibz = new SecurityID(1, stuff);
+            bool wasAdded = _repo.CreateNewBadge(dibz);
 
             Assert.IsTrue(wasAdded);
         }
-
-
 
         [TestInitialize]
         public void Arrange()
@@ -35,15 +29,18 @@ namespace SecurityTests
             _repo = new SecurityRepository();
             _dude = new SecurityID();
             _dude.BadgeID = 69;
-            _dude.Doors.Add("A5");
+            _repo.AddDoorToExistingBadge(_dude);
+            
             _repo.CreateNewBadge(_dude);
+           
 
         }
+
+       
+
         [TestMethod]
         public void TestForKey()
         {
-            
-
             bool badgeExists = _repo.DoesKeyExist(_dude.BadgeID);
 
             Assert.IsTrue(badgeExists);
@@ -52,26 +49,19 @@ namespace SecurityTests
         [TestMethod]
         public void AddDoorAccessToBadge()
         {
+            List<string> beb = new List<string>();
 
+            _dude.Doors = beb;
+            bool doorAdded = _repo.AddDoorToExistingBadge(_dude);
 
-
-            //SecurityID tina = new SecurityID();
-            //SecurityRepository miniRepo = new SecurityRepository();
-            //miniRepo.CreateNewBadge(tina);
-
-            //bool wasAdded = miniRepo.AddDoorToExistingBadge(tina);
-            //Assert.IsTrue(wasAdded);
+            Assert.IsTrue(doorAdded);
         }
         [TestMethod]
         public void ReturnValuesByKey()
-        {
-            
-            _dude.Doors.Add("A7");
-            _repo.AddDoorToExistingBadge(_dude);
-            bool wasAdded = _repo.GetIDByKey(69);
+        {            
+            bool wasGot = _repo.GetIDByKey(69);
 
-            Assert.IsTrue(wasAdded);
-
+            Assert.IsTrue(wasGot);
         }
     }
 }
