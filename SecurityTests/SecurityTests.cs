@@ -8,74 +8,70 @@ namespace SecurityTests
     [TestClass]
     public class SecurityTests
     {
-        private Dictionary<int, SecurityID> _dict;
         private SecurityRepository _repo;
-        private SecurityID _id;
+        SecurityID _dude;
+       
+
+        [TestMethod]
+        public void CreateNewBadgeID()
+        {
+
+
+            SecurityID lebowski = new SecurityID();
+            SecurityRepository repository = new SecurityRepository();
+            lebowski.BadgeID = 24;
+            lebowski.Doors.Add("A7");
+            bool wasAdded = repository.CreateNewBadge(lebowski);
+
+
+            Assert.IsTrue(wasAdded);
+        }
 
 
 
         [TestInitialize]
         public void Arrange()
         {
-            _dict = new Dictionary<int, SecurityID>();
             _repo = new SecurityRepository();
-            _id = new SecurityID()
-            {
-                BadgeID = 69,
-                DoorAccess = "A5"
-            };
+            _dude = new SecurityID();
+            _dude.BadgeID = 69;
+            _dude.Doors.Add("A5");
+            _repo.CreateNewBadge(_dude);
+
+        }
+        [TestMethod]
+        public void TestForKey()
+        {
+            
+
+            bool badgeExists = _repo.DoesKeyExist(_dude.BadgeID);
+
+            Assert.IsTrue(badgeExists);
         }
 
-
-
         [TestMethod]
-        public void CreateNew()
+        public void AddDoorAccessToBadge()
         {
-            bool wasAdded = _repo.AddItemToCollection(_id);
+
+
+
+            //SecurityID tina = new SecurityID();
+            //SecurityRepository miniRepo = new SecurityRepository();
+            //miniRepo.CreateNewBadge(tina);
+
+            //bool wasAdded = miniRepo.AddDoorToExistingBadge(tina);
+            //Assert.IsTrue(wasAdded);
+        }
+        [TestMethod]
+        public void ReturnValuesByKey()
+        {
+            
+            _dude.Doors.Add("A7");
+            _repo.AddDoorToExistingBadge(_dude);
+            bool wasAdded = _repo.GetIDByKey(69);
 
             Assert.IsTrue(wasAdded);
+
         }
-
-        [TestMethod]
-        public void UpdateDoorAccessByBadge()
-        {
-            _repo.UpdateExistingDoorAccessByBadgeId(69, "A4");
-
-            Assert.AreEqual(_id.DoorAccess, );
-        }
-        
-        
-        
-        
-        
-        [TestMethod]
-        public void ShowListOfAllKeyValuePairs()
-        {
-            _repo.AddItemToCollection(_id);
-            _repo.ViewAllEntries();
-            bool dictHasGirth = _dict.ContainsKey(_id.BadgeID);
-            
-            Assert.IsTrue(dictHasGirth);
-        }
-
-
-
-
-
-
-
-
-
-        //[TestMethod]
-        //public void UpdateDoorAccessPerID()
-        //{
-
-        //}
-        //[TestMethod]
-        //public void DeleteAllDoorsFromBadge()
-        //{
-
-        //}
-
     }
 }

@@ -110,6 +110,7 @@ namespace ClaimsRepo
             return null;
 
         }
+
         public Claim PeekNextClaim()
         {
             Console.Clear();
@@ -149,11 +150,8 @@ namespace ClaimsRepo
                         switch (input)
                         {
                             case "y":
-
-
                                 Console.WriteLine("Claim Successfully Taken Care Of");
                                 DequeueNextClaim();
-
                                 break;
                             case "n":
                                 keepItGoing = false;

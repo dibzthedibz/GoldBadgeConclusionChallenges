@@ -9,15 +9,16 @@ namespace SecurityRepo
     public class SecurityID
     {
         public int BadgeID { get; set; }
-        public List<string> DoorAccess { get; set; }
+        //public List<string> DoorAccess { get; set; }
+        public List<string> Doors { get; set; }
 
         public SecurityID() { }
-        public SecurityID(int badgeID, List<string> doorAccess)
+        public SecurityID(int badgeID, List<string> doors)
         {
             BadgeID = badgeID;
-            DoorAccess = doorAccess;
+            Doors = doors;
         }
-        //public KeyValuePair<int, string> dictPair = new KeyValuePair<int, string>();
+
     }
 
 }
