@@ -61,20 +61,6 @@ namespace SecurityRepo
             bool wasAdded = (_idDict.Count > startCount);
             return wasAdded;
 
-
-            //SecurityID dude = new SecurityID(key, null);
-
-            //int startCount = _idDict.Count();
-
-            //bool doesExist = DoesKeyExist(key);
-            //if (doesExist == false)
-            //{
-            //    _idDict.Add(key, dude.Doors);
-
-            //}
-            //List<string> doors = _idDict[key];
-            //bool wasAdded = (_idDict.Count > startCount);
-            //return wasAdded;
         }
 
 

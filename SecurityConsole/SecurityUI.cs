@@ -91,35 +91,142 @@ namespace SecurityConsole
             {
                 Console.WriteLine("Oops, Something Went Wrong. Try Again.");
             }
-
-
-
-
         }
         private void EditDoorAccessonExistingBadge()
         {
-            SecurityID loaner = new SecurityID();
             Console.Clear();
             Console.Write("Please Enter Badge Number to Alter: ");
-            string existingBadge = Convert.ToString(Console.ReadLine());
+            int input = Convert.ToInt32(Console.ReadLine());
 
-            int inputAsInt = Convert.ToInt32(existingBadge);
+            string doors = _repo.ValuesByKey(input);
 
-            bool doesItExist = _repo.DoesKeyExist(inputAsInt);
-            if (doesItExist != false)
+            if (doors != null)
             {
-                Console.Write("Enter A Door To Add Access to: ");
-                string input = Console.ReadLine();
-                _repo.AddDoorToExistingBadge(loaner);
-                Console.WriteLine("Would You Like To Add Another Door?");
-                string input1 = Console.ReadLine();
-
+                Console.Write("Badge Number: {0} has access to door(s): {1}", input, doors);
+                Console.Clear();
+                Console.WriteLine("What Would You Like To Do?\n" +
+                                  "1. Remove Door Access\n" +
+                                  "2. Add Door Access\n" +
+                                  "3.Exit to Main Menu");
+                string input1 = Console.ReadLine().ToLower();
+                switch (input1)
+                {
+                    case "1":
+                        RoomRemover(input);
+                        break;
+                    case "2":
+                        RoomAdderToUi(input);
+                        break;
+                    case "3":
+                        Menu();
+                        break;
+                    default:
+                        break;
+                }
             }
             else
             {
-                Console.WriteLine("That Badge Doesnt Exist, Please Try Again.");
+                Console.Write("Oops, Couldn't Find that Badge!");
             }
 
+        }
+        public void RoomAdderToUi(int loanerAdd)
+        {
+            SecurityID newSteve = RoomAdder(loanerAdd);
+
+            bool wasAdded = _repo.AddDoorToExistingBadge(newSteve);
+            if (wasAdded)
+            {
+                Console.WriteLine("Door Access Added Successfully");
+            }
+            else
+            {
+                Console.WriteLine("Looks Like Something Went Wrong");
+            }
+        }
+        public SecurityID RoomAdder(int loaner)
+        {
+
+            SecurityID Steve = new SecurityID();
+            List<string> newDoors = new List<string>();
+
+            Steve.BadgeID = loaner;
+
+            bool coolRunnings = true;
+
+            while (coolRunnings)
+            {
+                Console.WriteLine("Which room do we need to Add?");
+                newDoors.Add(Console.ReadLine());
+
+                Steve.Doors = newDoors;
+
+                Console.WriteLine("Add another room? (y/n)");
+                string input = Console.ReadLine();
+                bool affirmative = (input == "y");
+
+                if (affirmative == true)
+                {
+
+                    coolRunnings = true;
+                }
+                else
+                {
+
+                    coolRunnings = false;
+                }
+
+            }
+
+            return Steve;
+
+        }
+
+        
+
+        public void RoomRemover(int loaner)
+        {
+            SecurityID Steve1 = new SecurityID();
+            List<string> oldDoors = new List<string>();
+
+            Steve1.BadgeID = loaner;
+
+            bool coolRunnings = true;
+
+            while (coolRunnings)
+            {
+                Console.WriteLine("Which room do we need to Remove?");
+                oldDoors.Add(Console.ReadLine());
+
+                Steve1.Doors = oldDoors;
+
+                Console.WriteLine("Remove another room? (y/n)");
+                string input = Console.ReadLine();
+
+                bool affirmative = (input == "y");
+
+                if (affirmative == true)
+                {
+
+                    coolRunnings = true;
+                }
+                else
+                {
+
+                    coolRunnings = false;
+                }
+
+            }
+
+            bool wasAdded = _repo.RemoveDoorFromExistingBadge(Steve1);
+            if (wasAdded)
+            {
+                Console.WriteLine("Door Access Removed");
+            }
+            else
+            {
+                Console.WriteLine("Something Went Wrong");
+            }
         }
         private void ListAllBadges()
         {
@@ -164,7 +271,7 @@ namespace SecurityConsole
             _id3List.Add("A5");
             SecurityID id3 = new SecurityID(71, _id3List);
 
-            
+
             _repo.CreateNewBadge(id1);
             _repo.CreateNewBadge(id2);
             _repo.CreateNewBadge(id3);
