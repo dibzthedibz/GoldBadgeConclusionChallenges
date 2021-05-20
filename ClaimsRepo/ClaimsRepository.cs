@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+
 namespace ClaimsRepo
 {
     public class ClaimsRepository
@@ -102,72 +103,13 @@ namespace ClaimsRepo
 
         public Queue<Claim> SeeAllClaims()
         {
-
-            foreach (Claim claim in _currents)
-            {
-                Console.WriteLine(" " + claim.ClaimID + "   " + claim.TypeOfClaim + "      " + claim.Description + "     " + claim.ClaimAmount + "     " + claim.DateOfIncident + "     " + claim.DateOfClaim + "     " + claim.IsValid);
-            }
-            return null;
-
+            return _currents;
         }
 
         public Claim PeekNextClaim()
         {
-            Console.Clear();
-            Console.WindowWidth = 205;
-
-
-            if (_currents.Count == 0)
-            {
-                Console.WriteLine("Press any Key to Continue...");
-            }
-
-
-            else if (_currents.Count >= 1)
-            {
-                bool keepItGoing = true;
-
-                while (keepItGoing)
-                {
-                    if (_currents.Count == 0)
-                    {
-                        keepItGoing = false;
-                    }
-                    else
-                    {
-                        Claim claim = _currents.Peek();
-                        Console.WriteLine("Claim ID       Type     Description              Amount     Date of Accident           Date of Claim             Claim is Valid       ");
-                        Console.WriteLine("---------      -----    ------------             -------    -----------------          --------------            ---------------");
-                        Console.WriteLine(claim.ClaimID + "              " + claim.TypeOfClaim + "      " + claim.Description + "     " + claim.ClaimAmount + "     " + claim.DateOfIncident + "      " + claim.DateOfClaim + "     " + claim.IsValid);
-
-                        Console.WriteLine("                                                   ");
-                        Console.WriteLine("     Do you want to remove the next claim in queue and mark it complete?");
-                        Console.WriteLine("     --------------------------------------------------------     ");
-                        Console.Write("            Please Choose (y/n): ");
-                        string input = (Console.ReadLine().ToLower());
-
-
-                        switch (input)
-                        {
-                            case "y":
-                                Console.WriteLine("Claim Successfully Taken Care Of");
-                                DequeueNextClaim();
-                                break;
-                            case "n":
-                                keepItGoing = false;
-                                break;
-                        }
-                        Console.Clear();
-                    }
-                }
-            }
-            return null;
+            return _currents.Peek();
         }
-
-
-
-
-
 
         public bool DequeueNextClaim()
         {
@@ -182,8 +124,6 @@ namespace ClaimsRepo
 
         public bool AddNewClaim(Claim newClaim)
         {
-;
-            
             int startingCount = _currents.Count;
 
             _currents.Enqueue(newClaim);

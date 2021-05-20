@@ -14,6 +14,15 @@ namespace ClaimsTests
         private ClaimsRepository _repo;
         private Queue<Claim> _currents;
 
+        [TestMethod]
+        public void EnterNewClaim_ReturnIsTrue()
+        {
+            Claim claim = new Claim(4, "stuff", 4000.00m, new DateTime(2018, 4, 25), new DateTime(2018, 4, 27), ClaimType.Home);
+            bool addClaim = _repo.AddNewClaim(claim);
+
+            Assert.IsTrue(addClaim);
+        }
+
         [TestInitialize]
 
         public void Arrange()
@@ -28,20 +37,16 @@ namespace ClaimsTests
             _repo.AddNewClaim(_claim3);
         }
 
-        [TestMethod]
-        public void EnterNewClaim_ReturnIsTrue()
-        {
-            bool addClaim = _repo.AddNewClaim(_claim1);
-
-            Assert.IsTrue(addClaim);
-        }
+        
 
         [TestMethod]//This is not right.  SeeAllClaims method is useless
         public void ViewAllCurrentClaims_ReturnCorrectCollection()
         {
-            _repo.SeeAllClaims();
+            Queue<Claim> thing = _repo.SeeAllClaims();
 
-            Assert.IsNotNull(_currents);
+            bool hasGirth = (thing.Count != 0);
+
+            Assert.IsTrue(hasGirth);
         }
 
         [TestMethod]
@@ -56,7 +61,7 @@ namespace ClaimsTests
         {
             bool toDelete = _repo.DequeueNextClaim();
 
-            Assert.IsTrue(toDelete);
+            Assert.AreNotEqual(toDelete, _claim1);
         }
 
 

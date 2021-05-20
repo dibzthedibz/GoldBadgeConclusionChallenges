@@ -13,7 +13,7 @@ namespace ClaimsConsole
 {
     public class ClaimsUI
     {
-        
+
         private readonly ClaimsRepository _repo = new ClaimsRepository();
         public void Run()
         {
@@ -65,9 +65,54 @@ namespace ClaimsConsole
         private void TakeCareOfNextClaim()
         {
             Console.Clear();
-            _repo.PeekNextClaim();
+            Console.WindowWidth = 205;
+            Queue<Claim> miniQ = _repo.SeeAllClaims();
 
 
+            if (miniQ.Count >= 1)
+            {
+                bool keepItGoing = true;
+
+                while (keepItGoing)
+                {
+                    if (miniQ.Count == 0)
+                    {
+                        keepItGoing = false;
+                    }
+                    else
+                    {
+                        Claim claim = miniQ.Peek();
+
+                        Console.WriteLine("Here are the Details for the Next Claim to be Handled:\n" +
+                                          "======================================================\n" +
+                                          "Claim ID: {0}\n" +
+                                          "Type: {1}\n" +
+                                          "Description: {2}\n" +
+                                          "Amount: {3}\n" +
+                                          "Date of Accident: {4}\n" +
+                                          "Date of Claim: {5}\n" +
+                                          "Claim is Valid: {6}", claim.ClaimID, claim.TypeOfClaim, claim.Description, claim.ClaimAmount, claim.DateOfIncident,claim.DateOfClaim,claim.IsValid);
+                        Console.WriteLine("                                                   ");
+                        Console.WriteLine("     Do you want to remove the next claim in queue and mark it complete?");
+                        Console.WriteLine("     --------------------------------------------------------     ");
+                        Console.Write("            Please Choose (y/n): ");
+                        string input = (Console.ReadLine().ToLower());
+
+
+                        switch (input)
+                        {
+                            case "y":
+                                Console.WriteLine("Claim Successfully Taken Care Of");
+                                _repo.DequeueNextClaim();
+                                break;
+                            case "n":
+                                keepItGoing = false;
+                                break;
+                        }
+                        Console.Clear();
+                    }
+                }
+            }
         }
         public void EnterNewClaim()
         {
@@ -99,8 +144,16 @@ namespace ClaimsConsole
 
             Console.Write("Enter New Date of Claim: ");
             claim.DateOfClaim = Convert.ToDateTime(Console.ReadLine());
+            Console.Clear();
+
+            Console.WriteLine("This claim is {0}", claim.IsValid);
+            Console.WriteLine("Press Any Key to Continue");
+            Console.ReadLine();
+
             _repo.AddNewClaim(claim);
             Console.Clear();
+
+
         }
         public void QEnqueue()
         {
@@ -110,7 +163,7 @@ namespace ClaimsConsole
             _repo.AddNewClaim(claim2);
             Claim claim3 = new Claim(3, "Stolen pancakes.", 4.00m, new DateTime(2018, 4, 27), new DateTime(2018, 6, 01), ClaimType.Theft);
             _repo.AddNewClaim(claim3);
-            
+
 
         }
     }
