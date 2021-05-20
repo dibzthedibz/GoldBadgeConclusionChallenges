@@ -124,9 +124,13 @@ namespace SecurityConsole
                         break;
                 }
             }
-            else
+            else if (doors == null)
             {
-                Console.Write("Oops, Couldn't Find that Badge!");
+                Console.WriteLine("                                                      ");
+                Console.WriteLine("Oops, Couldn't Find that Badge! Try Adding it First.\n" +
+                                  "                                                      ");
+                Console.Write("Press Any Key to Continue to Main Menu.");
+                Console.ReadLine();
             }
 
         }
@@ -182,7 +186,7 @@ namespace SecurityConsole
 
         }
 
-        
+
 
         public void RoomRemover(int loaner)
         {

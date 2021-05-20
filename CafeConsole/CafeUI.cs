@@ -72,7 +72,9 @@ namespace CafeConsole
                 //Try to list in order everything even after change. This is MVP.
                 Console.WriteLine($"{item.MNum}. {item.MName}\n" +
                     $"What it is: {item.MDesc}\n" +
-                    $"Price: ${item.MPrice}\n");
+                    $"Price: ${item.MPrice}\n" +
+                    $"Ingredients: {item.IngList}\n" +
+                    $"-----------------------------------------------------------------");
 
             }
         }
