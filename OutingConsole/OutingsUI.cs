@@ -12,6 +12,7 @@ namespace OutingConsole
     {
         public void Run()
         {
+            Console.BackgroundColor = ConsoleColor.Blue;
             FillUpList();
             Menu();
         }
@@ -32,10 +33,22 @@ namespace OutingConsole
             while (keepRunning)
             {
                 Console.Clear();
-                Console.WriteLine("Please Select From the Following Menu Options: \n" +
-                                  "1. Display a list of All Outings.\n" +
-                                  "2. Add an Outing to the List.\n" +
-                                  "3. Exit Program.");
+                Console.WriteLine(" ");
+                Console.WriteLine(" ");
+                Console.WriteLine(" ");
+                Console.WriteLine(" ");
+                Console.WriteLine(" ");
+                Console.WriteLine(" ");
+                Console.WriteLine(" ");
+                Console.WriteLine(" ");
+                Console.WriteLine(" ");
+                Console.Write("                                   Please Select From the Following Menu Options: \n" +
+                                  "                                                                                 \n" +
+                                  "                                           1. Display a list of All Outings.\n" +
+                                  "                                             2. Add an Outing to the List.\n" +
+                                  "                                                    3. Exit Program.\n" +
+                                  "                                                                     \n" +
+                                  "                                             Enter Selection(1-3): ");
                 string input = Console.ReadLine();
                 switch (input)
                 {
@@ -57,7 +70,6 @@ namespace OutingConsole
         {
             Console.Clear();
             _repo.BuildTable();
-            
         }
         private void AddNewOutingToList()
         {
@@ -112,7 +124,6 @@ namespace OutingConsole
             _outing3.Date = outDate1;
             _outing3.CostPerPerson = 75;
             _outing3.Place = "Concert";
-
 
             _list.Add(_outing);
             _list.Add(_outing1);

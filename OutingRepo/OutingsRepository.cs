@@ -46,11 +46,17 @@ namespace OutingRepo
                 Table.Rows.Add(topRow);
             }
             //decimal Total = Convert.ToDecimal(Table.Compute("Sum(Cost Per Event)", "Cost Per Event"));
+
             PrintDataTable(Table);
+
             Console.WriteLine();
         }
         public static void PrintDataTable(DataTable Table)
         {
+            Console.SetCursorPosition(0, 6);
+
+            Console.WriteLine("          =====             =============       ==========      ===============            ==============");
+
             Console.WriteLine("{0,15}\t{1,25}\t{2,10}\t{3,15}\t{4,25}",
                 "Place",
                 "Date Of Event",
@@ -58,7 +64,8 @@ namespace OutingRepo
                 "Cost Per Person",
                 "Cost Per Event"
                 );
-            Console.WriteLine(" ");
+            Console.WriteLine("          =====             =============       ==========      ===============            ==============");
+            Console.WriteLine("                                                                                                         ");
             foreach (DataRow row in Table.Rows)
             {
                 Console.WriteLine("{0,15}\t{1,25}\t{2,10}\t{3,15}\t{4,25}",
@@ -68,12 +75,15 @@ namespace OutingRepo
                    row["Cost Per Person"],
                    row["Cost Per Event"]
                    );
+                Console.WriteLine("                                                                                                         ");
+                Console.WriteLine("---------------------------------------------------------------------------------------------------------");
+                Console.WriteLine("                                                                                                         ");
             }
             int Total = Table.AsEnumerable().Sum(row => row.Field<int>("Cost Per Event"));
-            Console.WriteLine(" ");
+            Console.WriteLine("                                                                              ---------------------------");
             Console.WriteLine("                                                                              Total Cost Per Annum: {0}", Total);
-            Console.WriteLine(" ");
-            Console.Write("Press Any Key To Continue...");
+            Console.WriteLine("                                                                              ---------------------------");
+            Console.Write("Press Any Key To Continue...                                                                             ");
 
             Console.ReadLine();
         }
