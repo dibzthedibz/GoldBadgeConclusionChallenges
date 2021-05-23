@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace T_GreetingRepo
 {
-    public enum CustType { Potential, Current, Past }
+    
     public class Customer
     {
+       
         public string FName { get; set; }
         public string LName { get; set; }
         public string FullName
@@ -17,14 +18,12 @@ namespace T_GreetingRepo
             {
                 return $"{FName} {LName}";
             }
-        }
-        public CustType TypeCust { get; set; }
+        }        
         public Customer() { }
-        public Customer(string fName, string lName, CustType typeCust)
+        public Customer(string fName, string lName)
         {
             FName = fName;
             LName = lName;
-            TypeCust = typeCust;
         }
     }
 }

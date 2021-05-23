@@ -10,7 +10,6 @@ namespace T_GreetingConsole
     {
         public void Run()
         {
-            PopList();
         }
 
         private void Menu()

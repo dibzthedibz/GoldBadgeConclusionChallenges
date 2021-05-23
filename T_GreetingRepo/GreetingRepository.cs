@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 
 namespace T_GreetingRepo
 {
+
     public class GreetingRepository
     {
-        private readonly List<Customer> CustDir = new List<Customer>();
-        //private readonly Dictionary<string, string> EmailDict = new Dictionary<string, string>();
+        Dictionary<string, string> CustType = new Dictionary<string, string>();
+        private readonly List<Customer> CustDir = new List<Customer>();        
         public List<Customer> ViewAllCustomers()
         {
             return CustDir;
         }
-
-        //public Dictionary<string, string> AccessEmailDict()
-        //{
-        //    return EmailDict;
-        //}
-
+        public void PopDict()
+        {
+            CustType.Add("Potential", "We currently have the lowest rates on Helicopter Insurance!");
+            CustType.Add("Current", "Thank you for your work with us. We appreciate your loyalty. Here's a coupon.");
+            CustType.Add("Past", "It's been a long time since we've heard from you, we want you back.");
+        }
         public bool AddCustomerToDirectory(Customer newCust)
         {
             int startCount = CustDir.Count();
@@ -29,7 +30,6 @@ namespace T_GreetingRepo
             bool wasAdded = (CustDir.Count > startCount);
             return wasAdded;
         }
-
         public Customer GetByCustFullName(string fName, string lName)
         {
             Customer custard = new Customer();
@@ -45,7 +45,6 @@ namespace T_GreetingRepo
             }
             return null;
         }
-
         public bool UpdateCustomerInfo(string fName, string lName, Customer upVal)
         {
             Customer custard = new Customer();
@@ -76,16 +75,6 @@ namespace T_GreetingRepo
             }
             bool wasEnded = (CustDir.Count > startCount);
             return wasEnded;
-        }
-        public void SetMessageByType(CustType type)
-        {
-            foreach(Customer cust in CustDir)
-            {
-                if(type == cust.TypeCust)
-                {
-                    return cust.TypeCust;
-                }
-            }
-        }
+        }                
     }
 }
