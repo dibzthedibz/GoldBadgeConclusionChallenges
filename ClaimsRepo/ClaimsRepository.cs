@@ -35,7 +35,7 @@ namespace ClaimsRepo
             DataColumn id = new DataColumn("Claim ID", typeof(int));
             DataColumn claimType = new DataColumn("Type", typeof(string));
             DataColumn desc = new DataColumn("Description", typeof(string));
-            DataColumn amt = new DataColumn("         Amount", typeof(decimal));
+            DataColumn amt = new DataColumn("Amount", typeof(decimal));
             DataColumn dOI = new DataColumn("Date Of Accident", typeof(DateTime));
             DataColumn dOC = new DataColumn("Date Of Claim", typeof(DateTime));
             DataColumn isValid = new DataColumn("Claim Valid", typeof(bool));
@@ -56,7 +56,7 @@ namespace ClaimsRepo
                 topRow["Claim ID"] = claim.ClaimID;
                 topRow["Type"] = claim.TypeOfClaim;
                 topRow["Description"] = claim.Description;
-                topRow["         Amount"] = claim.ClaimAmount;
+                topRow["Amount"] = claim.ClaimAmount;
                 topRow["Date Of Accident"] = claim.DateOfIncident;
                 topRow["Date Of Claim"] = claim.DateOfClaim;
                 topRow["Claim Valid"] = claim.IsValid;
@@ -71,11 +71,11 @@ namespace ClaimsRepo
 
         private static void PrintDataTable(DataTable table)
         {
-            Console.WriteLine("{0,10}\t{1,10}\t{2,10}\t{3,10}\t{4,25}\t{5,25}\t{6,10}",
+            Console.WriteLine("{0,10}\t{1,10}\t{2,10}\t{3,18}\t{4,25}\t{5,25}\t{6,10}",
                "Claim ID",
                "Claim Type",
                "Description",
-               "          Amount",
+               "Amount",
                "Date of Accident",
                "Date of Claim",
                "Valid Claim"
@@ -88,7 +88,7 @@ namespace ClaimsRepo
                     row["Claim ID"],
                     row["Type"],
                     row["Description"],
-                    row["         Amount"],
+                    row["Amount"],
                     row["Date of Accident"],
                     row["Date of Claim"],
                     row["Claim Valid"]

@@ -7,7 +7,6 @@ S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionCh
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\T_GreetingTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\T_GreetingTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\T_GreetingTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
-S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\T_GreetingTests\obj\Debug\T_GreetingTests.csprojAssemblyReference.cache
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\T_GreetingTests\obj\Debug\T_GreetingTests.csproj.CoreCompileInputs.cache
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\T_GreetingTests\obj\Debug\T_GreetingTests.csproj.CopyComplete
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\T_GreetingTests\obj\Debug\T_GreetingTests.dll

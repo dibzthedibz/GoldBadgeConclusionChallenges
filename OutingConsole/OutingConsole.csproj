@@ -50,5 +50,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OutingRepo\OutingRepo.csproj">
+      <Project>{56CC2BA4-AAFB-46D9-8327-9802E8FB4B26}</Project>
+      <Name>OutingRepo</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

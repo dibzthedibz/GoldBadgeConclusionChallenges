@@ -6,3 +6,4 @@ S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionCh
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\SecurityRepo\obj\Debug\SecurityRepo.csproj.CopyComplete
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\SecurityRepo\obj\Debug\SecurityRepo.dll
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\SecurityRepo\obj\Debug\SecurityRepo.pdb
+S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\SecurityRepo\obj\Debug\SecurityRepo.csprojAssemblyReference.cache

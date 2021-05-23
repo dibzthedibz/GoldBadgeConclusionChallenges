@@ -10,6 +10,9 @@ namespace OutingConsole
     {
         static void Main(string[] args)
         {
+            OutingsUI ui = new OutingsUI();
+            ui.FillUpList();
+            ui.DisplayAllOutingsWithCosts();
         }
     }
 }

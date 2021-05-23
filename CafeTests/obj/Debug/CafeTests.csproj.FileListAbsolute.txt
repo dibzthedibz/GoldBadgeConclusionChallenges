@@ -3,10 +3,8 @@ S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionCh
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeTests\bin\Debug\CafeTests.dll
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeTests\bin\Debug\CafeTests.pdb
-S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeTests\bin\Debug\KomodoCafe.dll
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
-S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeTests\bin\Debug\KomodoCafe.pdb
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeTests\obj\Debug\CafeTests.csprojAssemblyReference.cache
@@ -14,3 +12,5 @@ S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionCh
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeTests\obj\Debug\CafeTests.csproj.CopyComplete
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeTests\obj\Debug\CafeTests.dll
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeTests\obj\Debug\CafeTests.pdb
+S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeTests\bin\Debug\CafeRepo.dll
+S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\CafeTests\bin\Debug\CafeRepo.pdb
