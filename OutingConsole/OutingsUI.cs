@@ -10,11 +10,11 @@ namespace OutingConsole
 {
     public class OutingsUI
     {
-        //public void Run()
-        //{
-        //    FillUpList();
-        //    DisplayAllOutingsWithCosts();            
-        //}
+        public void Run()
+        {
+            FillUpList();
+            Menu();
+        }
         private OutingsRepository _repo = new OutingsRepository();
         private Dictionary<string, int> _mini;
         private List<Outing> _list;
@@ -22,43 +22,67 @@ namespace OutingConsole
         private Outing _outing1;
         private Outing _outing2;
         private Outing _outing3;
-        
 
 
 
-        //public void Menu()
-        //{
-        //    Console.Clear();
-        //    Console.WriteLine("Please Select From the Following Menu Options: \n" +
-        //                      "1. Display a list of All Outings.\n" +
-        //                      "2. Add an Outing to the List.\n" +
-        //                      "3. See Cost of All Outings Per Annum.\n" +
-        //                      "4. Find Cost of Outing by Type of Outing.\n" +
-        //                      "5. Exit Program.");
-        //    string input = Console.ReadLine();
-        //    switch (input)
-        //    {
-        //        case "1":
-        //            break;
-        //        case "2":
-        //            break;
-        //        case "3":
-        //            break;
-        //        case "4":
-        //            break;
-        //        case "5":
-        //            break;
-        //        default:
-        //            break;
-        //    }
 
-        //}
-        public void DisplayAllOutingsWithCosts()
+        public void Menu()
         {
-            _repo.BuildTable();
-            Console.ReadLine();
+            bool keepRunning = true;
+            while (keepRunning)
+            {
+                Console.Clear();
+                Console.WriteLine("Please Select From the Following Menu Options: \n" +
+                                  "1. Display a list of All Outings.\n" +
+                                  "2. Add an Outing to the List.\n" +
+                                  "3. Exit Program.");
+                string input = Console.ReadLine();
+                switch (input)
+                {
+                    case "1":
+                        DisplayAllOutingsWithCosts();
+                        break;
+                    case "2":
+                        AddNewOutingToList();
+                        break;
+                    case "3":
+                        keepRunning = false;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
-        public void FillUpList()
+        private void DisplayAllOutingsWithCosts()
+        {
+            Console.Clear();
+            _repo.BuildTable();
+            
+        }
+        private void AddNewOutingToList()
+        {
+            Console.Clear();
+            Outing outing = new Outing();
+            Console.Write("Please Enter Location/Type of Event: ");
+            outing.Place = Console.ReadLine();
+
+            Console.Write("How Many Were in Attendance?(I.e. 50): ");
+            outing.Attendance = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter The Date of the Event (DD/MM/YYYY): ");
+            outing.Date = Convert.ToDateTime(Console.ReadLine());
+
+            Console.Write("Enter Cost per Attendee: ");
+            outing.CostPerPerson = Convert.ToInt32(Console.ReadLine());
+
+            bool wasAdded = _repo.AddToList(outing);
+            if (wasAdded)
+            {
+                Console.WriteLine("Outing Successfully Added");
+                Console.WriteLine("Press Any Key To Continue...");
+            }
+        }
+        void FillUpList()
         {
             _list = _repo.GetList();
             DateTime outDate = new DateTime(2018, 03, 22);

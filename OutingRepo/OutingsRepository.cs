@@ -22,8 +22,8 @@ namespace OutingRepo
 
             DataTable Table = new DataTable();
             DataColumn Place = new DataColumn("Place", typeof(string));
-            DataColumn Attendance = new DataColumn("Attendance", typeof(int));
             DataColumn Date = new DataColumn("Date Of Event", typeof(DateTime));
+            DataColumn Attendance = new DataColumn("Attendance", typeof(int));
             DataColumn CostPerP = new DataColumn("Cost Per Person", typeof(int));
             DataColumn CostPerE = new DataColumn("Cost Per Event", typeof(int));
             Table.Columns.Add(Place);
@@ -39,39 +39,39 @@ namespace OutingRepo
                 topRow = Table.NewRow();
 
                 topRow["Place"] = outing.Place;
-                topRow["Attendance"] = outing.Attendance;
                 topRow["Date Of Event"] = outing.Date;
+                topRow["Attendance"] = outing.Attendance;
                 topRow["Cost Per Person"] = outing.CostPerPerson;
                 topRow["Cost Per Event"] = outing.CostPerEvent;
                 Table.Rows.Add(topRow);
             }
-           //decimal Total = Convert.ToDecimal(Table.Compute("Sum(Cost Per Event)", "Cost Per Event"));
+            //decimal Total = Convert.ToDecimal(Table.Compute("Sum(Cost Per Event)", "Cost Per Event"));
             PrintDataTable(Table);
             Console.WriteLine();
         }
         public static void PrintDataTable(DataTable Table)
         {
-            Console.WriteLine("{0,15}\t{1,25}\t{2,25}\t{3,15}\t{4,25}",
+            Console.WriteLine("{0,15}\t{1,25}\t{2,10}\t{3,15}\t{4,25}",
                 "Place",
-                "Attendance",
                 "Date Of Event",
+                "Attendance",
                 "Cost Per Person",
                 "Cost Per Event"
                 );
             Console.WriteLine(" ");
             foreach (DataRow row in Table.Rows)
             {
-                Console.WriteLine("{0,15}\t{1,25}\t{2,25}\t{3,15}\t{4,25}",
+                Console.WriteLine("{0,15}\t{1,25}\t{2,10}\t{3,15}\t{4,25}",
                    row["Place"],
-                   row["Attendance"],
                    row["Date Of Event"],
+                   row["Attendance"],
                    row["Cost Per Person"],
                    row["Cost Per Event"]
                    );
             }
             int Total = Table.AsEnumerable().Sum(row => row.Field<int>("Cost Per Event"));
             Console.WriteLine(" ");
-            Console.WriteLine("                                                                                              Total Cost Per Annum: {0}", Total);
+            Console.WriteLine("                                                                              Total Cost Per Annum: {0}", Total);
             Console.WriteLine(" ");
             Console.Write("Press Any Key To Continue...");
 

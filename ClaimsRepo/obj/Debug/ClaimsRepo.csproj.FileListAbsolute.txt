@@ -3,3 +3,4 @@ S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionCh
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\ClaimsRepo\obj\Debug\ClaimsRepo.csproj.CoreCompileInputs.cache
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\ClaimsRepo\obj\Debug\ClaimsRepo.dll
 S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\ClaimsRepo\obj\Debug\ClaimsRepo.pdb
+S:\Bootcamp Work Folder Boom\GoldBadgeConclusionChallenges\GoldBadgeConclusionChallenges\ClaimsRepo\obj\Debug\ClaimsRepo.csprojAssemblyReference.cache
